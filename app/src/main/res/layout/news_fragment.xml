@@ -17,5 +17,5 @@
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
         android:layout_below="@id/is_favorite"
-        app:srcCompat="@mipmap/ic_filter_list_black_24dp" />
+        app:srcCompat="@mipmap/ic_public_black_24dp" />
 </RelativeLayout>

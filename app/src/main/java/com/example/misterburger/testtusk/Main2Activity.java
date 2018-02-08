@@ -32,7 +32,6 @@ public class Main2Activity extends AppCompatActivity
     DrawerLayout drawer;
     Controller controller;
     TMPData tmpData;
-    AlertDialog alert;
 
     public Controller getController() {
         return controller;
@@ -53,27 +52,6 @@ public class Main2Activity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         getFragment(FragmentFlags.NEWS_FRAGMENT);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        moveTaskToBack(false);
-        Log.d("TAG", String.valueOf(tmpData.getFlag()));
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else if (tmpData.getFlag() != FragmentFlags.NEWS_FRAGMENT) {
-            getFragment(FragmentFlags.NEWS_FRAGMENT);
-        } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
-                builder.setMessage("Do you want to Exit?")
-                        .setCancelable(true)
-                        .setPositiveButton("Yes", (dialog, id) -> finish())
-                        .setNegativeButton("No", (dialog, which) -> dialog.cancel());
-                alert = builder.create();
-                alert.show();
-
-        }
     }
 
     @Override
@@ -154,13 +132,29 @@ public class Main2Activity extends AppCompatActivity
         controller.getRealmNews().onDestroy();
     }
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
         getFragment(FragmentFlags.NEWS_FRAGMENT);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Log.d("TAG",String.valueOf(tmpData.getFlag()));
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (tmpData.getFlag() == FragmentFlags.SHARE_FRAGMENT) {
+            getFragment(FragmentFlags.ARTICLES_FRAGMENT);
+        }else if(tmpData.getFlag() != FragmentFlags.NEWS_FRAGMENT)    {
+            getFragment(FragmentFlags.NEWS_FRAGMENT);
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+            builder.setMessage("Do you want to Exit?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", (dialog, id) -> finish())
+                    .setNegativeButton("No", (dialog, which) -> dialog.cancel());
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+    }
 }

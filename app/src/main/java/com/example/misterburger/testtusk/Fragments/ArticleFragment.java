@@ -23,6 +23,7 @@ import com.example.misterburger.testtusk.Controller.Controller;
 import com.example.misterburger.testtusk.Main2Activity;
 import com.example.misterburger.testtusk.R;
 import com.example.misterburger.testtusk.R2;
+import com.example.misterburger.testtusk.Utility.FragmentFlags;
 import com.example.misterburger.testtusk.Utility.TMPData;
 import com.example.misterburger.testtusk.model.ArticleStructure;
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
@@ -65,7 +66,7 @@ public class ArticleFragment extends Fragment {
         tmpData = controller.getTmpData();
         article = tmpData.getArticleStructure();
         fab.setOnClickListener(view1 -> {
-            tmpData.setFlag(null);
+            tmpData.setFlag(FragmentFlags.SHARE_FRAGMENT);
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
