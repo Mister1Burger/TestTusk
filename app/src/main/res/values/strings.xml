@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TestTusk</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="news">News</string>
+    <string name="top_headlines">TOP Headlines</string>
+    <string name="myFilters">Filters</string>
+    <string name="favorite">Favorite</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="show_article">Show Article</string>
+    <string name="enter_the_source">Enter the Source</string>
+    <string name="chose_date_to">Chose date to</string>
+    <string name="chose_date_from">Chose date from</string>
+    <string name="apply_filtres">Apply filtres</string>
+    <string name="enter_the_query">Search by Keyword</string>
+    <string name="sort_by">Sort by</string>
+
+
+</resources>
